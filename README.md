@@ -12,6 +12,7 @@ asp.netcore 3.1 restful api with swaggerUI
 - SQL EXPRESS server;
 - AutoMapper (for mapping resources and models);
 - Swashbuckle (Swagger UI API documentation).
+- Download and install sqlexpress 2018 `https://www.microsoft.com/en-us/download/details.aspx?id=101064`
 # How Run
 - First,clone or download the repo open it with Visual studio/Code
 
