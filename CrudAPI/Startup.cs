@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace CrudAPI
         {
             // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(Startup));
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //Register swagger UI APi documentation
             services.AddSwaggerGen(c =>
             {
@@ -44,7 +46,9 @@ namespace CrudAPI
                 Version ="V1"
                 });
             });
-            services.AddControllers();
+            // had to ignore the loop , due to the fact that the category and the reference from Anime object is taking it as being referencing itself bacuse of automapper.
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+          
             services.AddMvc();
             //add the connection stream
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbAnime")));

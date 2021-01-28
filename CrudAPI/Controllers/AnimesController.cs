@@ -41,27 +41,16 @@ namespace CrudAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveAnimeResource resource)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrorMessages());
-
-            var category = _mapper.Map<SaveAnimeResource, Anime>(resource);
-            var result = await _animeService.SaveAsync(category);
+            var anime = _mapper.Map<SaveAnimeResource, Anime>(resource);
+            var result = await _animeService.SaveAsync(anime);
 
             if (!result.Success)
-                return BadRequest(result.Message);
+            {
+                return BadRequest(new ErrorResource(result.Message));
+            }
 
             var animeResource = _mapper.Map<Anime, AnimeResource>(result.Anime);
             return Ok(animeResource);
-            //Anime anime = _mapper.Map<SaveAnimeResource, Anime>(resource);
-            //var result = await _animeService.SaveAsync(anime);
-
-            //if (!result.Success)
-            //{
-            //    return BadRequest(new ErrorResource(result.Message));
-            //}
-
-            //var productResource = _mapper.Map<Anime, AnimeResource>(result.Resource);
-            //return Ok(productResource);
         }
 
 

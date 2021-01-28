@@ -15,12 +15,12 @@ namespace CrudAPI.Domain.Models
         public string Producer { get; set; }
         public string Thumbnail { get; set; }
         public bool Istreaming { get; set; }
-        [Display(Name = "Release Date")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [DataType(DataType.Date)]
+        //[Display(Name = "Release Date")]
+       // [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        //[DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
        
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

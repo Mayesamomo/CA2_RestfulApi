@@ -11,16 +11,23 @@ namespace CrudAPI.Resources
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
+
         [Required]
         public string Description { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string Producer { get; set; }
+
         [Required]
         public string Thumbnail { get; set; }
+
         [Required]
         public bool Istreaming { get; set; }
+
+        [Required]
         public DateTime ReleaseDate { get; set; }
+
         [Required]
         public int CategoryId { get; set; }
        

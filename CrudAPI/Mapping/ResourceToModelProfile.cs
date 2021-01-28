@@ -15,7 +15,7 @@ namespace CrudAPI.Mapping
         {
             CreateMap<SaveCategoryResource, Category>();
 
-            //CreateMap<SaveAnimeResource, Anime>()
+            CreateMap<SaveAnimeResource, Anime>();
             //    .ForMember(src => src.Category, opt => opt.MapFrom(src => (Category)src.Category));
 
             CreateMap<AnimesQueryResource, AnimesQuery>();
