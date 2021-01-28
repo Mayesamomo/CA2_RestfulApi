@@ -15,7 +15,7 @@ asp.netcore 3.1 restful api with swaggerUI
 # How Run
 - First,clone or download the repo open it with Visual studio/Code
 
-- Navigate to https://localhost:5001/api/categories to check if the API is working. If you see a HTTPS security error, just add an exception to see the results. Navigate to Properties folder and change launchSettings.json
+- Navigate to https://localhost:5001/api/ to check if the API is working. If you see a HTTPS security error, just add an exception to see the results. Navigate to Properties folder and change launchSettings.json
 
   `` "IIS Express": {
       "commandName": "IISExpress",
